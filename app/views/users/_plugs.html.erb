@@ -1,0 +1,8 @@
+<h1>My plugs</h1>
+<ul>
+  <% @user.plugs.each do |plug| %>
+    <li><%= link_to plug.address, plug_path(plug.id) %></li>
+  <% end %>
+</ul>
+
+<p><%= link_to "New plug", new_plug_path, class: 'btn btn-primary' %></p>
