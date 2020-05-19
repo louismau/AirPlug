@@ -1,0 +1,12 @@
+  
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <%= simple_form_for(@user) do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :phone_number %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Edit your profile", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
