@@ -1,7 +1,7 @@
 class PlugsController < ApplicationController
-  
+
   def index
-    @plugs = Plug.all
+    @plugs = policy_scope(Plug).order(created_at: :desc)
   end
   
   def show
@@ -10,13 +10,15 @@ class PlugsController < ApplicationController
   
   def new
     @plug = Plug.new
+    authorize @plug
   end
 
   def create
     @plug = Plug.new(require_params)
+    authorize @plug
 
     if @plug.save
-      redirect_to #
+      redirect_to plugs_path
     else
       render :new
     end
