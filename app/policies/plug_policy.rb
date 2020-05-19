@@ -13,11 +13,11 @@ class PlugPolicy < ApplicationPolicy
     true
   end
 
-  def edit? 
+  def update? 
     record.user == user
   end
 
-  def destroy
+  def destroy?
     record.user == user
   end
 end

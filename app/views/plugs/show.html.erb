@@ -11,5 +11,9 @@
 <p><%= @plug.ac_dc %></p>
 <p><%= @plug.type_plug %></p>
 </div>
-<%= link_to 'Edit charging spot', edit_plug_path(@plug), class: 'btn btn-primary' %>
-<%= link_to 'Delete charging spot', plug_path(@plug), method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-danger' %>
+<% if policy(@plug).edit? %>
+  <%= link_to 'Edit charging spot', edit_plug_path(@plug), class: 'btn btn-primary' %>
+<% end %>
+<% if policy(@plug).edit? %>
+  <%= link_to 'Delete charging spot', plug_path(@plug), method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-danger' %>
+<% end %>

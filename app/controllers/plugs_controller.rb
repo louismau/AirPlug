@@ -28,6 +28,7 @@ class PlugsController < ApplicationController
 
   def update
     @plug = Plug.find(params[:id])
+    authorize @plug
     @plug.update(plug_params)
     redirect_to plug_path(@plug)
   end
