@@ -1,7 +1,10 @@
+.container-body {
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  min-height: 100px;
   background: #F4F4F4;
   display: flex;
   align-items: center;
