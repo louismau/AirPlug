@@ -6,6 +6,7 @@ class PlugsController < ApplicationController
   
   def show
     @plug = Plug.find(params[:id])
+    authorize @plug
   end
   
   def new
@@ -14,7 +15,8 @@ class PlugsController < ApplicationController
   end
 
   def create
-    @plug = Plug.new(require_params)
+    @plug = Plug.new(plug_params)
+    @plug.user = current_user
     authorize @plug
 
     if @plug.save
@@ -23,10 +25,28 @@ class PlugsController < ApplicationController
       render :new
     end
   end
-  
+
+  def update
+    @plug = Plug.find(params[:id])
+    @plug.update(plug_params)
+    redirect_to plug_path(@plug)
+  end
+
+  def edit
+    @plug = Plug.find(params[:id])
+    authorize @plug
+  end
+
+  def destroy
+    @plug = Plug.find(params[:id])
+    authorize @plug
+    @plug.destroy
+    redirect_to plugs_path
+  end
+    
   private
 
-  def require_params
+  def plug_params
     params.require(:plug).permit(:address, :price, :power, :ac_dc, :type_plug, photos: [])
   end
 
