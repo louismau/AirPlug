@@ -1,19 +1,25 @@
 <h1>Charging spot</h1>
+
 <% if @plug.photos.attached? %>
   <% @plug.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 <% end %>
+
 <h2><%= @plug.address %></h2>
+
 <div class='d-flex'>
-<p><%= @plug.price %> euros per hour</p>
-<p><%= @plug.power %></p>
-<p><%= @plug.ac_dc %></p>
-<p><%= @plug.type_plug %></p>
+  <p><%= @plug.price %> euros per hour</p>
+  <p><%= @plug.power %></p>
+  <p><%= @plug.ac_dc %></p>
+  <p><%= @plug.type_plug %></p>
 </div>
+
 <% if policy(@plug).edit? %>
   <%= link_to 'Edit charging spot', edit_plug_path(@plug), class: 'btn btn-primary' %>
 <% end %>
 <% if policy(@plug).edit? %>
   <%= link_to 'Delete charging spot', plug_path(@plug), method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-danger' %>
 <% end %>
+
+<%= link_to 'Book this charging spot', new_plug_booking_path(@plug), class: 'btn btn-primary' %>
