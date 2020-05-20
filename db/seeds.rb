@@ -11,6 +11,7 @@ require 'faker'
 puts 'Cleaning database...'
 User.destroy_all
 Plug.destroy_all
+Booking.destroy_all
  
 puts 'Creating user...'
 20.times do
@@ -38,5 +39,16 @@ puts 'Creating user...'
     puts "Plug \"#{plug.type_plug} - #{plug.power}\"created"
   end
 end
+
+puts'Creating bookings...'
+20.times do 
+  booking = Booking.new 
+  booking.user = User.all.sample 
+  plug = Plug.all.sample
+  booking.plug = plug
+  puts "Booking for #{booking.user} created"
+end
+
+
  
 puts "Finished!"

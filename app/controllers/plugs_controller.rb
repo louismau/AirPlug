@@ -1,4 +1,5 @@
 class PlugsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
     @plugs = policy_scope(Plug).order(created_at: :desc)
