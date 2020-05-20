@@ -21,15 +21,19 @@ const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
   if (mapElement) { 
-    mapboxgl.accessToken = 'pk.eyJ1IjoibG91aXNtYXUiLCJhIjoiY2s5bzMzMGxhMDd3aTNubzh6amNqd3lsbCJ9.xuiUg1SNmZwvfFy-WRnYNQ';
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+    navigator.geolocation.getCurrentPosition((data) => {
+      mapboxgl.accessToken = 'pk.eyJ1IjoibG91aXNtYXUiLCJhIjoiY2s5bzMzMGxhMDd3aTNubzh6amNqd3lsbCJ9.xuiUg1SNmZwvfFy-WRnYNQ';
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v10',
+        // center: [data.coords.latitude, data.coords.longitude],
+       // zoom: 12
+      });
+      // map.setCenter([data.coords.latitude, data.coords.longitude])
+      const markers = JSON.parse(mapElement.dataset.markers);
+      fitMapToMarkers(map, markers);
+      addMarkersToMap(map, markers);
     });
-    
-    const markers = JSON.parse(mapElement.dataset.markers);
-    fitMapToMarkers(map, markers);
-    addMarkersToMap(map, markers);
   }
 };
 
