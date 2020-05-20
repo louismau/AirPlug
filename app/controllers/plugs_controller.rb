@@ -29,7 +29,7 @@ class PlugsController < ApplicationController
     authorize @plug
 
     if @plug.save
-      redirect_to plugs_path
+      redirect_to plug_path(@plug)
     else
       render :new
     end
