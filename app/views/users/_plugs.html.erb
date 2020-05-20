@@ -1,8 +1,8 @@
-<h1>My plugs</h1>
+<h1>My charging points</h1>
 <ul>
   <% @user.plugs.each do |plug| %>
     <li><%= link_to plug.address, plug_path(plug.id) %></li>
   <% end %>
 </ul>
 
-<p><%= link_to "New plug", new_plug_path, class: 'btn btn-primary' %></p>
+<p><%= link_to "Add a Charging Point", new_plug_path, class: 'btn btn-primary' %></p>
