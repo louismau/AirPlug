@@ -2,7 +2,15 @@ class PlugsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @plugs = policy_scope(Plug).order(created_at: :desc)
+    @plugs = policy_scope(Plug.geocoded)
+
+    @markers = @plugs.map do |plug|
+      {
+        lat: plug.latitude,
+        lng: plug.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { plug: plug })
+      }
+    end
   end
   
   def show
