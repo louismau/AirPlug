@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     @booking.plug = Plug.find(params[:plug_id])
     # @plug = Plug.find(params[:plug_id])
     # authorize @plug
-    raise
     if @booking.save!
       redirect_to plug_path(@booking.plug)
     else
@@ -24,6 +23,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:plug_id, :user_id, :transaction_price, :start_time, :end_time)
+    params.require(:booking).permit(:start_time, :end_time)
   end
 end
