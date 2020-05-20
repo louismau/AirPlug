@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'faker'
  
 puts 'Cleaning database...'
 User.destroy_all
@@ -14,17 +13,19 @@ Plug.destroy_all
 Booking.destroy_all
  
 puts 'Creating user...'
-20.times do
+
+
   user = User.new(
-    password: Faker::Internet.password,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
-    email: Faker::Internet.email
-  )
+    password: "alpha0101",
+    first_name: 'Elon',
+    last_name: 'Musk',
+    phone_number: '0150504545',
+    email: 'elonm94@mail.com')  
   user.save
   puts "User #{user.email} created"
-  
+
+20.times do
+
   a = ['64 rue Pelleport, 75020 Paris', '12 Avenue des Champs Elysées, 75008 Paris', '8 rue du Mur du Parc, 78240 Chambourcy',
 '113 rue des Pyrénées, 75020 Paris', '4 Passage de la Râpe, 45000 Orléans', '22 Boulevard Pierre Segelle, 45000 Orléans', 
 '11 rue du Grenier A Sel, 45000 Orléans', '9 rue du Cheval Rouge, 45000 Orléans', '12 Hameau de la Rivière, 45160 Ardon',

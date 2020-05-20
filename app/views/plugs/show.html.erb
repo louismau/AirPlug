@@ -1,6 +1,6 @@
 <div class="row">
   <div class='col-4 offset-4 border bg-white rounded m-4 p-4'>
-    <h1>Charging spot</h1>
+    <h1>Charging point</h1>
 
     <% if @plug.photos.attached? %>
       <% @plug.photos.each do |photo| %>
@@ -18,13 +18,13 @@
     </div>
 
     <% if policy(@plug).edit? %>
-      <%= link_to 'Edit charging spot', edit_plug_path(@plug), class: 'btn btn-primary' %>
+      <%= link_to 'Edit charging point', edit_plug_path(@plug), class: 'btn btn-primary' %>
     <% end %>
     <% if policy(@plug).edit? %>
-      <%= link_to 'Delete charging spot', plug_path(@plug), method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-danger' %>
+      <%= link_to 'Delete charging point', plug_path(@plug), method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-danger' %>
     <% end %>
     <% if @plug.user != current_user %>
-      <%= link_to 'Book this charging spot', new_plug_booking_path(@plug), class: 'btn btn-primary' %>
+      <%= link_to 'Book this charging point', new_plug_booking_path(@plug), class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
