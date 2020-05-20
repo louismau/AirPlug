@@ -15,13 +15,22 @@ Booking.destroy_all
  
 puts 'Creating user...'
 20.times do
+  # user = User.new(
+  #   password: Faker::Internet.password,
+  #   first_name: Faker::Name.first_name,
+  #   last_name: Faker::Name.last_name,
+  #   phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+  #   email: Faker::Internet.email
+  # )
+  # user.save
+  # puts "User #{user.email} created"
+
   user = User.new(
-    password: Faker::Internet.password,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.phone_number_with_country_code,
-    email: Faker::Internet.email
-  )
+    password: "alpha0101",
+    first_name: 'Elon',
+    last_name: 'Musk',
+    phone_number: '0150504545',
+    email: 'elonm94@mail.com')  
   user.save
   puts "User #{user.email} created"
   
