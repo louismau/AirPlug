@@ -1,0 +1,7 @@
+<h5><%= "#{plug.price} € per hour" %></h5>
+<div class='d-flex justify-content-around'>
+  <p><%= plug.ac_dc %></p>
+  <p><%= plug.power %></p>
+  <p><%= plug.type_plug %></p>
+</div>
+<%= link_to 'Book now', new_plug_booking_path(plug), class: 'btn btn-primary' %>
