@@ -1,15 +1,14 @@
 <div class="row justify-content-center">
   <div class="col-12 col-lg-6">
-    <h1 id="myprofile">My profile</h1>
+    <h1>My profile</h1>
 
     <%= simple_form_for(@user) do |f| %>
-    <%= f.input :first_name, input_html: { value: f.object.first_name }, disabled: true %>
-    <%= f.input :last_name, input_html: { value: f.object.last_name }, disabled: true %>
-    <%= f.input :phone_number, input_html: { value: f.object.phone_number }, disabled: true %>
-    <%= f.input :photo, as: :file %>
-    <%= link_to "Modify", edit_user_path, class: 'btn btn-primary' %>
+      <%= f.input :first_name, input_html: { value: f.object.first_name }, disabled: true %>
+      <%= f.input :last_name, input_html: { value: f.object.last_name }, disabled: true %>
+      <%= f.input :phone_number, input_html: { value: f.object.phone_number }, disabled: true %>
+      <%= link_to "Modify", edit_user_path, class: 'btn btn-primary' %>
     <% end %>
-    
+
     <%= render 'plugs' %>
     <%= render 'bookings' %>
   </div>
