@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     @user = User.update(user_params)
-    #raise
     redirect_to user_path
   end
 

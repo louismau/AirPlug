@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     @booking.plug = Plug.find(params[:plug_id])
     # @plug = Plug.find(params[:plug_id])
     # authorize @plug
+    @booking.transaction_price = price_calculation(@booking)
     if @booking.save!
       redirect_to plug_path(@booking.plug)
     else
@@ -21,6 +22,10 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def price_calculation(object)
+    (object.end_time - object.start_time) / 3600 * Plug.find(params[:plug_id]).price
+  end
 
   def booking_params
     params.require(:booking).permit(:start_time, :end_time)

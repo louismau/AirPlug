@@ -1,30 +1,31 @@
-<div class="row">
-  <div class='col-4 offset-4 border bg-white rounded m-4 p-4'>
-    <h1>Charging point</h1>
-
+<div class="row  justify-content-center">
+   <div id='plug-details' class='col-4 shadow p-3 mb-5 bg-white rounded'>
     <% if @plug.photos.attached? %>
       <% @plug.photos.each do |photo| %>
         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
     <% end %>
+      <div class="d-flex justify-content-start">
+      <p><%= @plug.power.to_i %> <strong>W</strong> ·  </p>
+      <p><i class="fas fa-bolt"></i><%= @plug.ac_dc %> ·  </p>
+      <p>Type: <%= @plug.type_plug %></p>
+      <% if policy(@plug).edit? %>
+        <%= link_to 'Edit charging point', edit_plug_path(@plug), class: 'btn btn-primary' %>
+        <%= link_to 'Delete charging point', plug_path(@plug), method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-danger' %>
+      <% end %>
+      </div>
+  </div>
 
-    <h2><%= @plug.address %></h2>
-
-    <div>
-      <p><%= @plug.price %> euros per hour</p>
-      <p><%= @plug.power %></p>
-      <p><%= @plug.ac_dc %></p>
-      <p><%= @plug.type_plug %></p>
+  <div class='col-4'>
+    <div id='plug-price' class="shadow p-3 mb-5 bg-white rounded">
+      <p><strong><%= @plug.price %>€</strong></p>
+      <p>for one hour</p>
     </div>
 
-    <% if policy(@plug).edit? %>
-      <%= link_to 'Edit charging point', edit_plug_path(@plug), class: 'btn btn-primary' %>
-    <% end %>
-    <% if policy(@plug).edit? %>
-      <%= link_to 'Delete charging point', plug_path(@plug), method: :delete, data: { confirm: 'Are you sure ?'}, class: 'btn btn-danger' %>
-    <% end %>
-    <% if @plug.user != current_user %>
-      <%= link_to 'Book this charging point', new_plug_booking_path(@plug), class: 'btn btn-primary' %>
-    <% end %>
-  </div>
+    <div id='booking-form' class="shadow p-3 mb-5 bg-white rounded">
+      <% if @plug.user != current_user %>
+        <%= render 'bookings/new' %>
+      <% end %>
+    </div>
+  </div> 
 </div>
