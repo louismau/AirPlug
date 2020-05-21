@@ -1,14 +1,16 @@
 
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
-      <%= simple_form_for(@plug) do |f| %>
-      <%= f.input :address %>
-      <%= f.input :price %>
-      <%= f.input :power %>
-      <%= f.input :ac_dc %>
-      <%= f.input :type_plug %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.submit "Add this charging point", class: "btn btn-primary" %>
-      <% end %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-6">
+        <%= simple_form_for(@plug) do |f| %>
+        <%= f.input :address %>
+        <%= f.input :price %>
+        <%= f.input :power %>
+        <%= f.input :ac_dc %>
+        <%= f.input :type_plug %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.submit "Add this charging point", class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
