@@ -6,10 +6,10 @@
       <div class="col-12 col-lg-6 shadow rounder bg-white p-3 my-3">
         <%= simple_form_for(@plug) do |f| %>
         <%= f.input :address %>
-        <%= f.input :price %>
+        <%= f.input :price, label: 'Price per hour' %>
         <%= f.input :power %>
-        <%= f.input :ac_dc %>
-        <%= f.input :type_plug %>
+        <%= f.input :ac_dc, collection: ['AC', 'DC'] %>
+        <%= f.input :type_plug, collection: Plug::PLUG_TYPE %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Add this charging point", class: "btn btn-primary text-center" %>
         <% end %>
