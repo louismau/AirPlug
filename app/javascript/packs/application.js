@@ -29,7 +29,11 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+
+
 document.addEventListener('turbolinks:load', () => {
+  initUpdateNavbarOnScroll();
   initMapbox();
   initAutocomplete();
 });
