@@ -3,7 +3,7 @@
     <div class="col-6">
       <h1 class="text-center">My profile</h1>
       <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class: "profile_picture", gravity: "faces", crop: "fill" %>
+        <%= cl_image_tag current_user.photo.key, class: "profile_picture", height: 120, width: 120, gravity: "faces", crop: "fill" %>
       <% else %>
         <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/240px-OOjs_UI_icon_userAvatar.svg.png", class: "profile_picture" %>
       <% end %>
