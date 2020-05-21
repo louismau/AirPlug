@@ -1,22 +1,24 @@
-<div class="d-flex">
-  <div class="col-6">
-    <h1 class="text-center">My profile</h1>
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class: "profile_picture", gravity: "faces", crop: "fill" %>
-    <% else %>
-      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/240px-OOjs_UI_icon_userAvatar.svg.png", class: "profile_picture" %>
-    <% end %>
-    <%= simple_form_for(@user) do |f| %>
-      <%= f.input :first_name, input_html: { value: f.object.first_name }, disabled: true %>
-      <%= f.input :last_name, input_html: { value: f.object.last_name }, disabled: true %>
-      <%= f.input :phone_number, input_html: { value: f.object.phone_number }, disabled: true %>
-      <%= link_to "Modify", edit_user_path, class: 'btn btn-primary' %>
-    <% end %>
-  </div>
-
-  <div class="col-6">
-    <%= render 'plugs' %>
-    <br/>
-    <%= render 'bookings' %>
+<div class="container-inside"> 
+  <div class="d-flex">
+    <div class="col-6">
+      <h1 class="text-center">My profile</h1>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "profile_picture", gravity: "faces", crop: "fill" %>
+      <% else %>
+        <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/240px-OOjs_UI_icon_userAvatar.svg.png", class: "profile_picture" %>
+      <% end %>
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.input :first_name, input_html: { value: f.object.first_name }, disabled: true %>
+        <%= f.input :last_name, input_html: { value: f.object.last_name }, disabled: true %>
+        <%= f.input :phone_number, input_html: { value: f.object.phone_number }, disabled: true %>
+        <%= link_to "Modify", edit_user_path, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  
+    <div class="col-6">
+      <%= render 'plugs' %>
+      <br/>
+      <%= render 'bookings' %>
+    </div>
   </div>
 </div>
