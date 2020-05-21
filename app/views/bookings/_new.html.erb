@@ -1,7 +1,9 @@
 
-  <h4>Book this charging station</h4>
+  <h4><strong>Book this charging station</strong></h4>
     <%= simple_form_for [ @plug, @booking ] do |f| %>
-    <%= f.input :start_time, label: 'From' %>
-    <%= f.input :end_time, label: 'To' %>
-    <%= f.submit "Book", class: "btn btn-primary" %>
+      <%= f.input :start_time, as: :string, label: 'From', input_html: {class: "datepicker"} %>
+      <%= f.input :end_time, as: :string, label: 'To', input_html: {class: "datepicker"} %>
+      <%= f.submit 'Book now', class: "btn btn-primary" %>
     <% end %>
+
+ 
