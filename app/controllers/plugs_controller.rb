@@ -16,6 +16,8 @@ class PlugsController < ApplicationController
   def show
     @plug = Plug.find(params[:id])
     authorize @plug
+    @booking = Booking.new
+    authorize @booking
   end
   
   def new
