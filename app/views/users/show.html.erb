@@ -7,7 +7,7 @@
       <% else %>
         <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/240px-OOjs_UI_icon_userAvatar.svg.png", class: "profile_picture" %>
       <% end %>
-      
+
       <%= simple_form_for(@user) do |f| %>
         <%= f.input :first_name, input_html: { value: f.object.first_name }, disabled: true %>
         <%= f.input :last_name, input_html: { value: f.object.last_name }, disabled: true %>
@@ -16,7 +16,7 @@
       <% end %>
     </div>
   
-    <div class="col-6">
+    <div class="col-6 d-block">
       <%= render 'plugs' %>
       <br/>
       <%= render 'bookings' %>

@@ -1,16 +1,16 @@
 <h1>My charging points</h1>
 
-<div class="card-product">
-  <% @user.plugs.each do |plug| %>
+<% @user.plugs.each do |plug| %>
+  <div class="card-product">
     <% if plug.photos.attached? %>
       <%= cl_image_tag plug.photos.first.key, height: 300, width: 400, crop: :fill %>
     <% else %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Nissan_LEAF_got_thirsty.jpg" />
     <% end %>    
     <div class="card-product-infos">
       <h2><%= link_to plug.address, plug_path(plug.id) %></h2>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
 <br/>
 <p><%= link_to "Add a Charging Point", new_plug_path, class: 'btn btn-primary' %></p>
