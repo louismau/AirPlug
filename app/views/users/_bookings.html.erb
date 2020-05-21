@@ -1,5 +1,9 @@
 <h1>My bookings</h1>
-  <% @user.bookings.each do |booking| %>
-    <h5><%= link_to booking.plug.address, plug_path(booking.plug) %></h5>
-    <p><%= "From #{booking.start_time} to #{booking.end_time}" %></p>
-  <% end %>
+<% @user.bookings.each do |booking| %>
+  <div class="card-product">
+    <div class="card-product-infos">
+      <h5><%= link_to booking.plug.address, plug_path(booking.plug) %></h5>
+      <p><%= "From #{booking.start_time} to #{booking.end_time}" %></p>
+    </div>
+  </div>
+<% end %>

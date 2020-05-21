@@ -1,22 +1,26 @@
-<div class="d-flex">
-  <div class="col-6">
-    <h1 class="text-center">My profile</h1>
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class: "profile_picture", gravity: "faces", crop: "fill" %>
-    <% else %>
-      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/240px-OOjs_UI_icon_userAvatar.svg.png", class: "profile_picture" %>
-    <% end %>
-    <%= simple_form_for(@user) do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :phone_number %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Save", class: 'btn btn-primary' %>
-    <% end %>
-  </div>
-  <div class="col-6">
-    <%= render 'plugs' %>
-    <br/>
-    <%= render 'bookings' %>
+<div class="container-inside">
+  <div class="d-flex">
+    <div class="col-6">
+      <h1 class="text-center">My profile</h1>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "profile_picture", gravity: "faces", crop: "fill" %>
+      <% else %>
+        <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/240px-OOjs_UI_icon_userAvatar.svg.png", class: "profile_picture" %>
+      <% end %>
+
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :phone_number %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Save", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+    
+    <div class="col-6">
+      <%= render 'plugs' %>
+      <br/>
+      <%= render 'bookings' %>
+    </div>
   </div>
 </div>
