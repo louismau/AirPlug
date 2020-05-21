@@ -8,8 +8,8 @@
         <%= f.input :address %>
         <%= f.input :price, label: 'Price per hour' %>
         <%= f.input :power %>
-        <%= f.input :ac_dc, collection: ['AC', 'DC'] %>
-        <%= f.input :type_plug, collection: Plug::PLUG_TYPE %>
+        <%= f.input :ac_dc, label: 'AC / DC', as: :radio_buttons, collection: ['AC', 'DC'], wrapper: :vertical_collection_inline %>
+        <%= f.input :type_plug, label: 'Type of plug', as: :radio_buttons, collection: Plug::PLUG_TYPE, wrapper: :vertical_collection_inline %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Add this charging point", class: "btn btn-primary text-center" %>
         <% end %>
