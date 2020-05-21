@@ -1,8 +1,13 @@
 <h1>My charging points</h1>
-<ul>
-  <% @user.plugs.each do |plug| %>
-    <li><%= link_to plug.address, plug_path(plug.id) %></li>
-  <% end %>
-</ul>
 
+<div class="card-product">
+  <% @user.plugs.each do |plug| %>
+    <%# <%= raise %>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= link_to plug.address, plug_path(plug.id) %></h2>
+    </div>
+  <% end %>
+</div>
+<br/>
 <p><%= link_to "Add a Charging Point", new_plug_path, class: 'btn btn-primary' %></p>
