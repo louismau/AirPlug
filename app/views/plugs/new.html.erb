@@ -1,7 +1,10 @@
 
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-6">
+    <div class='text-center bg-white rounded p-3 my-3'>
+      <h1>Rent your charging station and make money</h1>
+    </div>
+    <div class="row justify-content-center m-3">
+      <div class="col-12 col-lg-6 shadow rounder bg-white p-3 my-3">
         <%= simple_form_for(@plug) do |f| %>
         <%= f.input :address %>
         <%= f.input :price %>
@@ -9,7 +12,7 @@
         <%= f.input :ac_dc %>
         <%= f.input :type_plug %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <%= f.submit "Add this charging point", class: "btn btn-primary" %>
+        <%= f.submit "Add this charging point", class: "btn btn-primary text-center" %>
         <% end %>
       </div>
     </div>
