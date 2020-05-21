@@ -7,14 +7,16 @@
       <% else %>
         <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/240px-OOjs_UI_icon_userAvatar.svg.png", class: "profile_picture" %>
       <% end %>
+
       <%= simple_form_for(@user) do |f| %>
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      <%= f.input :phone_number %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit "Save", class: 'btn btn-primary' %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :phone_number %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Save", class: 'btn btn-primary' %>
       <% end %>
     </div>
+    
     <div class="col-6">
       <%= render 'plugs' %>
       <br/>
