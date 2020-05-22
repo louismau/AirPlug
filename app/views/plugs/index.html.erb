@@ -28,14 +28,14 @@
 <div class='container' id='container-index'>
 
     <%= simple_form_for :search, url: plugs_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
+      <div class="search-form-control form-group mt-4">
         <input class="form-control string required" type="text" name="search[query]" id="plug_address" value="<%= params[:search][:query] if !params[:search].nil? %>" />
           <button name="button" type="submit" class="btn btn-flat">
             <i class="fas fa-search"></i> Search
           </button>
       </div>
 
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mb-4">
         <div class='pt-3 col-3 rounded bg-white shadow'>
           <h1>Filter</h1>
           <div class="ACDC mb-2">
@@ -58,12 +58,12 @@
             </div>
           </div>
           <div>
-            <p class='d-inline'>Maximum power</p>
-            <input class="custom-range" type="range" name="power_max" min="0" max="<%=Plug.maximum('power')*2%>" step="40">
+            <p class='d-inline'>Maximum power: <output id='power_max_value'><%=Plug.maximum('power').to_i%></output></p>
+            <input class="custom-range" id='power_max' type="range" name="power_max" min="0" max="<%=Plug.maximum('power')%>" step="40" value="<%=Plug.maximum('power')%>">
           </div>
           <div>
-            <p class='d-inline'>Maximum price per hour</p>
-            <input class="custom-range" type="range" name="price_max" min="1" max="<%=Plug.maximum('price')*2%>" step="1">
+            <p class='d-inline'>Maximum price per hour: <span id='price_max_value'><%=Plug.maximum('price').to_i%></span></p>
+            <input class="custom-range" id='price_max' type="range" name="price_max" min="1" max="<%=Plug.maximum('price')%>" step="1" value="<%=Plug.maximum('price')%>">
           </div>
           <button name="button" type="submit" class="w-100 btn btn-success text-white">
             <i class="fas fa-search"></i> Search

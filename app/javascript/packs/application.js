@@ -37,4 +37,12 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initMapbox();
   initAutocomplete();
+  const maxPrice = document.getElementById('price_max');
+  maxPrice.addEventListener('input', (event) => {
+    document.getElementById('price_max_value').innerText = event.currentTarget.value;
+  });
+  const maxPower = document.getElementById('power_max');
+  maxPower.addEventListener('input', (event) => {
+    document.getElementById('power_max_value').innerText = event.currentTarget.value;
+  });
 });
