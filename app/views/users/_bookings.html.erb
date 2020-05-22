@@ -4,7 +4,7 @@
     <h2 id="price"><%= booking.transaction_price %> €</h2>
     <div class="card-product-infos">
       <h5><%= link_to booking.plug.address, plug_path(booking.plug) %></h5>
-      <p><%= "From #{booking.start_time} to #{booking.end_time}" %></p>
+      <p><%= "From #{booking.start_time.strftime('%m/%d/%Y at %I:%M%p')} to #{booking.end_time.strftime('%m/%d/%Y at %I:%M%p')}" %></p>
     </div>
   </div>
 <% end %>
