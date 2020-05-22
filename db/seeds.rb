@@ -36,13 +36,13 @@ puts 'Creating user...'
   plug = Plug.new(
       address: a.sample,
       power: [16, 30, 40, 70].sample,
-      ac_dc: ["ac", "dc"].sample,
-      type_plug: ["CHAdeMO", "CCS", "Type 2", "Tesla Type 2"].sample,
+      ac_dc: ["AC", "DC"].sample,
+      type_plug: ['Type 2', 'Type 3C', 'Type 1', 'CHAdeMO', 'Combo CCS', 'P17' ].sample,
       price: rand(8..20)
   )
  
     plug.user = user
-    plug.save
+    plug.save!
     puts "Plug \"#{plug.type_plug} - #{plug.power}\"created"
 
 end

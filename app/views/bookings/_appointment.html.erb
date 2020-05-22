@@ -1,0 +1,13 @@
+<h1>My appointment</h1>
+<% Booking.where(plug_id: @plug.id).each do |appointment| %>
+  <div class="card-product">
+    <h2 id="price"><%= appointment.transaction_price %> €</h2>
+    <div class="card-product-infos">
+      <p><%= "From #{appointment.start_time} to #{appointment.end_time}" %></p>
+    </div>
+    <div>
+      <p><%= link_to "check", new_plug_path, class: 'btn btn-primary' %></p>
+      <p><%= link_to "delete", new_plug_path, class: 'btn btn-primary' %></p>
+    </div>
+  </div>
+<% end %>
