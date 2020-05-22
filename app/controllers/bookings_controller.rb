@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     # authorize @plug
     @booking.transaction_price = price_calculation(@booking)
     if @booking.save!
+      flash[:notice] = "Booking successfully created"
       redirect_to plug_path(@booking.plug)
     else
       render :new
