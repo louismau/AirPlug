@@ -50,6 +50,10 @@
         <div id='booking-form' class="shadow p-3 mb-5 bg-white rounded text-center">
           <%= render 'bookings/new' %>
         </div>
+      <% else %>
+        <div id='booking-form' class="shadow p-3 mb-5 bg-white rounded text-center">
+          <%= render 'bookings/appointment' %>
+        </div>
       <% end %>
     </div> 
   </div>
