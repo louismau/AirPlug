@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_100919) do
     t.float "transaction_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "status"
+    t.string "status", default: "pending"
     t.index ["plug_id"], name: "index_bookings_on_plug_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
