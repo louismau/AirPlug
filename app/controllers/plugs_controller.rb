@@ -2,7 +2,16 @@ class PlugsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @plugs = policy_scope(Plug.geocoded)
+    filter = {}
+    filter[:ac_dc]=params[:courant] if params[:courant].present?
+    filter[:type_plug]=params[:type] if params[:type].present?
+    power_max = params[:power_max] || 500 
+    price_max = params[:price_max] || 500
+    if params[:search].present? && params[:search][:query] != ''
+      @plugs = policy_scope(Plug.geocoded.near(params[:search][:query])).where(filter).where('price <= ?', price_max).where('power <= ?', power_max)
+    else
+      @plugs = policy_scope(Plug.geocoded.where(filter).where('price <= ?', price_max).where('power <= ?', power_max))
+    end
 
     @markers = @plugs.map do |plug|
       {
