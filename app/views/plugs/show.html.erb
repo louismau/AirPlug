@@ -29,7 +29,7 @@
           <div>
             <% if policy(@plug).edit? %>
               <%= link_to edit_plug_path(@plug) do %>
-                <i class="fas fa-pen"></i>
+                <i class="mr-2 fas fa-pen"></i>
               <% end %>
               <%= link_to plug_path(@plug), method: :delete, data: { confirm: 'Are you sure ?'} do %>
                 <i class="mr-2 fas fa-trash-alt"></i>
