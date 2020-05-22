@@ -5,7 +5,7 @@
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "profile_picture", height: 120, width: 120, gravity: "faces", crop: "fill" %>
       <% else %>
-        <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/240px-OOjs_UI_icon_userAvatar.svg.png", class: "profile_picture" %>
+        <%= image_tag "https://www.dts.edu/wp-content/uploads/sites/6/2018/04/Blank-Profile-Picture.jpg", class: "profile_picture" %>
       <% end %>
 
       <%= simple_form_for(@user) do |f| %>
