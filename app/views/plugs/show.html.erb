@@ -9,6 +9,8 @@
                 <%= cl_image_tag photo.key, height: 300, width:400, crop: :fill, style: 'width: 100%', class: 'rounded' %>
               </div>
             <% end %>
+          <% else %>
+            <%= image_tag "https://static.scientificamerican.com/sciam/cache/file/F0828B13-F4F7-4BEA-B44470D44C3A5845_source.jpg", height: 300, width:400, crop: :fill, style: 'width: 100%', class: 'rounded' %>
           <% end %>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
