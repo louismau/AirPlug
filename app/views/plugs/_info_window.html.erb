@@ -1,7 +1,13 @@
 <h5><%= "#{plug.price} € per hour" %></h5>
-<div class='d-flex justify-content-around'>
-  <p><%= plug.ac_dc %></p>
-  <p><%= plug.power %></p>
-  <p><%= plug.type_plug %></p>
+
+<% if plug.photos.attached? %>
+  <%= cl_image_tag plug.photos.first.key, crop: :fill, style: 'width: 100%', class: 'rounded' %>
+<% else %>
+  <%= image_tag "https://static.scientificamerican.com/sciam/cache/file/F0828B13-F4F7-4BEA-B44470D44C3A5845_source.jpg", crop: :fill, style: 'width: 100%', class: 'rounded' %>
+<% end %>
+
+<div class='mt-2 d-flex justify-content-around'>
+  <p><strong><%= plug.power.to_i %></strong>kW · <i class="fas fa-bolt"></i> <%= plug.ac_dc %>  · <strong>Type</strong>: <%= plug.type_plug %></p>
 </div>
+
 <%= link_to 'Book now', plug_path(plug), class: 'btn btn-primary' %>

@@ -1,6 +1,8 @@
-<h3>My appointment</h3>
-<% if @plug.bookings == [] %>
-  <%= "Your charging point hasn't been booked yet" %>
+<h1>My appointment</h1>
+<% if Booking.where(plug_id: @plug.id).empty? %>
+  <div class="text-center m-5 p-3">
+    <p><em>Your charging station has not been reserved at the moment.</em></p>
+  </div>
 <% else %>
   <% Booking.where(plug_id: @plug.id).each do |appointment| %>
     <div class="card-product px-2 shadow-none bg-light">
