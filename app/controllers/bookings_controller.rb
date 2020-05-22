@@ -22,6 +22,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:booking_id])
+    authorize @booking
+    @plug = Plug.find(params[:plug_id])
+    @booking.status = 'confirmed'
+    @booking.save
+  end
+
+
   private
 
   def price_calculation(object)
