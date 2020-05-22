@@ -6,16 +6,18 @@
 <% else %>
   <% Booking.where(plug_id: @plug.id).each do |appointment| %>
     <div class="card-product px-2 shadow-none bg-light">
-      <h2 id="price"><%= appointment.transaction_price %> €</h2>
-      <div class="card-product-infos">
-        <p><%= "From #{appointment.start_time.strftime('%m/%d/%Y at %I:%M%p')} to #{appointment.end_time.strftime('%m/%d/%Y at %I:%M%p')}" %></p>
-        <p><%= "This appointement is #{appointment.status}"%></p>
+      <div>
+        <h2><%= appointment.transaction_price %> €</h2>
+        <div class="card-product-infos p-1">
+          <p><%= "From #{appointment.start_time.strftime('%m/%d/%Y at %I:%M%p')} to #{appointment.end_time.strftime('%m/%d/%Y at %I:%M%p')}" %></p>
+          <p><%= "This appointement is #{appointment.status}"%></p>
+        </div>
       </div>
       <div>
-      <% if appointment.status == 'pending' %>
-        <p><%= link_to "Confirm", user_path(@plug.user), class: 'btn btn-success' %></p>
-        <p><%= link_to "Decline", user_path(@plug.user), class: 'btn btn-primary' %></p>
-      <% end %>
+        <% if appointment.status == 'pending' %>
+          <p><%= link_to "Confirm", user_path(@plug.user), class: 'btn btn-success' %></p>
+          <p><%= link_to "Decline", user_path(@plug.user), class: 'btn btn-primary' %></p>
+        <% end %>
       </div>
     </div>
   <% end %>
